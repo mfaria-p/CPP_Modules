@@ -209,4 +209,29 @@ Rectangle rectc(); // oops, default constructor NOT called
 ```
 This is because the empty set of parentheses would make of rectc a function declaration instead of an object declaration: It would be a function that takes no arguments and returns a value of type Rectangle.
 
-## Member initialization in constructs
+## Pointers to Classes
+
+Objects can also be pointed to by pointers: Once declared, a class becomes a valid type, so it can be used as the type pointed to by a pointer. For example:
+
+```c++
+Rectangle * prect;
+```
+
+is a pointer to an object of class ``Rectangle``.
+
+Similarly as with plain data structures, the members of an object can be accessed directly from a pointer by using the arrow operator (->).
+
+This example makes use of several operators to operate on objects and pointers (operators *, &, ., ->, []). They can be interpreted as:
+
+| expression |	can be read as |
+| -------- |:--------:|
+|*x |	pointed to by x |
+&x |	address of x
+x.y	| member y of object x
+x->y |	member y of object pointed to by x
+(*x).y |	member y of object pointed to by x (equivalent to the previous one)
+x[0] |	first object pointed to by x
+x[1] |	second object pointed to by x
+x[n] |	(n+1)th object pointed to by x
+
+All of the information here was taken from this [website](https://cplusplus.com/doc/tutorial/classes/). Feel free to explore this subject in more details there.
