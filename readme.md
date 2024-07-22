@@ -235,3 +235,77 @@ x[1] |	second object pointed to by x
 x[n] |	(n+1)th object pointed to by x
 
 All of the information here was taken from this [website](https://cplusplus.com/doc/tutorial/classes/). Feel free to explore this subject in more details there.
+
+# Cpp00
+
+### Namespaces
+**Namespaces** help avoid conflicts between identifiers with the same name but in different libraries or parts of a program.
+For example, two libraries might have a function named ``log``. By placing each function in a different namespace, you can avoid the conflict.
+
+### Namespaces vs Classes
+**Namespace**:
+ - Groups related functions, variables, and types.
+ - No instances, no encapsulation, no inheritance, no polymorphism.
+```c++
+#include <iostream>
+
+namespace MathFunctions {
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    int subtract(int a, int b) {
+        return a - b;
+    }
+}
+
+int main() {
+    std::cout << "Add: " << MathFunctions::add(5, 3) << std::endl;
+    std::cout << "Subtract: " << MathFunctions::subtract(5, 3) << std::endl;
+    return 0;
+}
+```
+**Classes**
+ - Defines objects with data and functionality.
+ - Can be instantiated, encapsulates data, supports inheritance and polymorphism.
+```c++
+#include <iostream>
+
+class Calculator {
+public:
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    int subtract(int a, int b) {
+        return a - b;
+    }
+};
+
+int main() {
+    Calculator calc;
+    std::cout << "Add: " << calc.add(5, 3) << std::endl;
+    std::cout << "Subtract: " << calc.subtract(5, 3) << std::endl;
+    return 0;
+}
+```
+
+## iostream library
+``std`` is the namespace provided by the C++ Standard Library that includes features of the standard library.
+
+``std::cout``: Standard output stream object.
+``std::endl``: Stream manipulator to insert a newline and flush the stream.
+
+The ``<<`` operator is known as the stream insertion operator, which is used to insert data into the output stream (std::cout).
+
+### std::string
+
+**Type:** std::string is a class provided by the C++ Standard Library.
+
+**Features:** 
+- Provides a rich set of functionalities for string manipulation (e.g., concatenation, comparison, substring extraction, etc.).
+- Automatically manages memory, meaning you don't have to worry about allocating and deallocating memory.
+- Supports operations like assignment and concatenation with the + operator.
+- Can be easily resized.
+
+
