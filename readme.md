@@ -308,4 +308,8 @@ The ``<<`` operator is known as the stream insertion operator, which is used to 
 - Supports operations like assignment and concatenation with the + operator.
 - Can be easily resized.
 
+Any of the public members of object rect can be accessed as if they were normal functions or normal variables, by simply inserting a dot (.) between object name and member name.
+
+The scope operator (::) specifies the class to which the member being defined belongs, granting exactly the same scope properties as if this function definition was directly included within the class definition.
+
 

@@ -10,7 +10,8 @@ class PhoneBook {
         PhoneBook () { //to inicialize the whole phonebook
             n_contacts = 0;
         }
-        void add_contact();
+        void isContactUsed(int index);
+        void add_to_book(int index);
         void print_all_contacts();
         void search_contact();
 };
