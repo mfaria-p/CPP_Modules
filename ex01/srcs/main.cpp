@@ -1,7 +1,4 @@
-#include "../includes/PhoneBook.hpp"
-#include "../includes/Contact.hpp"
-
-#include <iostream>
+#include "../includes/header.hpp"
 
 int main(void)
 {
@@ -25,6 +22,10 @@ int main(void)
 				index++;
 			}
             Phone.add_to_book(index);
+        }
+        else if (cmd == "SEARCH")
+        {
+
         }
     }
 
