@@ -11,21 +11,12 @@ int main(void)
     while (1)
     {
         std::cout << "enter a command: ";
-        std::cin >> cmd;
+        std::getline (std::cin,cmd);
         if (cmd == "ADD")
-        {
-            while (Phone.isContactUsed(index)) {
-				if (index ==  7) {
-					index = 0;
-					break;
-				}
-				index++;
-			}
             Phone.add_to_book(index);
-        }
         else if (cmd == "SEARCH")
         {
-
+            Phone.print_data();
         }
     }
 

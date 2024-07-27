@@ -3,12 +3,13 @@
 int Contact::contact_exist() {
     if (initialized == true)
         return(1);
+	else
+		return(0);
 }
 
 void Contact::set_contact () {
-    std::system("clear");
 	std::cout << "First Name: ";
-	//std::cin.ignore();
+	std::cin.ignore();
 	while (first_name.empty()) {
 				std::getline(std::cin, first_name);
 				if (first_name.empty()) {
@@ -16,7 +17,7 @@ void Contact::set_contact () {
 					std::cout << "First Name: ";
 				}
 			}
-    std::cout << "\nLast Name: ";
+    std::cout << "Last Name: ";
 	while (last_name.empty()) {
 		std::getline(std::cin, last_name);
 		if (last_name.empty()) {
@@ -24,7 +25,7 @@ void Contact::set_contact () {
 			std::cout << "Last Name: ";
 		}
 	}
-    std::cout << "\nNickname: ";
+    std::cout << "Nickname: ";
 	while (nickname.empty()) {
 		std::getline(std::cin, nickname);
 		if (nickname.empty()) {
@@ -32,7 +33,7 @@ void Contact::set_contact () {
 			std::cout << "Nickname: ";
 		}
 	}
-    std::cout << "\nPhone Number: ";
+    std::cout << "Phone Number: ";
 	while (phone_number.empty()) {
 		std::getline(std::cin, phone_number);
 		if (phone_number.empty()) {
@@ -40,7 +41,7 @@ void Contact::set_contact () {
 			std::cout << "Phone Number: ";
 	    }
 	}
-    std::cout << "\nDarkest Secret: ";
+    std::cout << "Darkest Secret: ";
 			while (darkest_secret.empty()) {
 				std::getline(std::cin, darkest_secret);
 				if (darkest_secret.empty()) {
@@ -49,4 +50,22 @@ void Contact::set_contact () {
 				}
 			}
     initialized = true;
+};
+
+void truncate_print(std::string str) {
+	if (str.length() > 10)
+		std::cout << str.substr(0,9) << ".";
+	else
+		std::cout << std::setw(10) << str;
 }
+
+void Contact::print_table(int index) {
+	std::cout << std::setw(10) << index + 1;
+	std::cout << "|";
+	truncate_print(first_name);
+	std::cout << "|";
+	truncate_print(last_name);
+	std::cout << "|";
+	truncate_print(nickname);
+	std::cout << std::endl;
+};
