@@ -42,6 +42,6 @@ void PhoneBook::print_data(void) {
         }
     }
     else
-    std::cout << "No Contacts added yet" << std::endl;
+        std::cout << "No Contacts added yet" << std::endl;
 	
 }

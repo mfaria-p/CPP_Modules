@@ -312,4 +312,95 @@ Any of the public members of object rect can be accessed as if they were normal 
 
 The scope operator (::) specifies the class to which the member being defined belongs, granting exactly the same scope properties as if this function definition was directly included within the class definition.
 
+## Static members
+A class can contain static members, either data or functions.
 
+A static data member of a class is also known as a "class variable", because there is only one common variable for all the objects of that same class, sharing the same value: i.e., its value is not different from one object of this class to another.
+
+For example, it may be used for a variable within a class that can contain a counter with the number of objects of that class that are currently allocated:
+
+```cpp
+#include <iostream>
+
+class Dummy {
+  public:
+    static int n;
+    Dummy() { n++; }
+};
+
+int Dummy::n = 0;
+
+int main() {
+    Dummy a;
+    Dummy b[5];
+    std::cout << a.n << '\n';
+    Dummy* c = new Dummy;
+    std::cout << Dummy::n << '\n';
+    delete c;
+    return 0;
+}
+```
+
+In fact, static members have the same properties as non-member variables but they enjoy class scope. For that reason, and to avoid them to be declared several times, they cannot be initialized directly in the class, but need to be initialized somewhere outside it.
+
+```cpp
+int Dummy::n=0;
+```
+
+Because it is a common variable value for all the objects of the same class, it can be referred to as a member of any object of that class or even directly by the class name (of course this is only valid for static members).
+
+```cpp
+cout << a.n;
+cout << Dummy::n;
+```
+
+These two calls above are referring to the same variable: the static variable n within class Dummy shared by all objects of this class.
+
+## Destructors
+Destructor is an instance member function that is invoked automatically whenever an object is going to be destroyed. Meaning, a destructor is the last function that is going to be called before an object is destroyed.
+
+The syntax for defining the destructor within the class:
+```c++
+~ <class_name>() {
+    // some instructions
+}
+```
+Just like any other member function of the class, we can define the destructor outside the class too:
+
+```c++
+<class_name> {
+public:
+     ~<class_name>();
+}
+
+<class_name> :: ~<class_name>() {
+    // some instructions
+}
+```
+But we still need to at least declare the destructor inside the class.
+
+### Characteristics of a Destructor
+- A destructor is also a special member function like a constructor. Destructor destroys the class objects created by the constructor. 
+- Destructor has the same name as their class name preceded by a tilde (~) symbol.
+- It is not possible to define more than one destructor.
+- The destructor is only one way to destroy the object created by the constructor. Hence, destructor cannot be overloaded.
+- It cannot be declared static or const.
+- Destructor neither requires any argument nor returns any value.
+- It is automatically called when an object goes out of scope. 
+- Destructor release memory space occupied by the objects created by the constructor.
+- In destructor, objects are destroyed in the reverse of an object creation.
+
+The thing is to be noted here if the object is created by using new or the constructor uses new to allocate memory that resides in the heap memory or the free store, the destructor should use delete to free the memory.
+
+### When is the destructor called?
+A destructor function is called automatically when the object goes out of scope or is deleted. Following are the cases where destructor is called:
+
+- Destructor is called when the function ends.
+- Destructor is called when the program ends.
+- Destructor is called when a block containing local variables ends.
+- Destructor is called when a delete operator is called.
+#### How to call destructors explicitly?
+Destructor can also be called explicitly for an object. We can call the destructors explicitly using the following statement:
+```cpp
+object_name.~class_name()
+```

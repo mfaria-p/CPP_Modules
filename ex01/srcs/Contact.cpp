@@ -9,7 +9,6 @@ int Contact::contact_exist() {
 
 void Contact::set_contact () {
 	std::cout << "First Name: ";
-	std::cin.ignore();
 	while (first_name.empty()) {
 				std::getline(std::cin, first_name);
 				if (first_name.empty()) {
@@ -52,7 +51,7 @@ void Contact::set_contact () {
     initialized = true;
 };
 
-void truncate_print(std::string str) {
+void truncate_print(const std::string& str) {
 	if (str.length() > 10)
 		std::cout << str.substr(0,9) << ".";
 	else
@@ -69,3 +68,11 @@ void Contact::print_table(int index) {
 	truncate_print(nickname);
 	std::cout << std::endl;
 };
+
+void Contact::print_contact(void) {
+	std::cout << "First name: " << first_name << std::endl;
+	std::cout << "Last name: " << last_name << std::endl;
+	std::cout << "Nickname: " << nickname << std::endl;
+	std::cout << "Phone number: " << phone_number << std::endl;
+	std::cout << "Darkest secret: " << darkest_secret << std::endl;
+}

@@ -7,7 +7,7 @@ int main(void)
     int index;
 
     index = 0;
-    std::cout << "The most incredible PhoneBoom you will ever see" << std::endl;
+    std::cout << "The most incredible PhoneBook you will ever see :)" << std::endl;
     while (1)
     {
         std::cout << "enter a command: ";
@@ -18,6 +18,13 @@ int main(void)
         {
             Phone.print_data();
         }
+        else if (cmd == "EXIT")
+        {
+            std::cout << "Exiting from the awesome PhoneBook :)\n";
+            exit(EXIT_SUCCESS);
+        }
+        else
+            std::cout << "Comand not Found... Try again\n";
     }
 
 }
