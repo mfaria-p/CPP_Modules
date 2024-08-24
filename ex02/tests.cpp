@@ -15,12 +15,17 @@
 
 int		main( void ) {
 
+	//This line defines a new type accounts_t that is a vector of Account objects.
 	typedef std::vector<Account::t>							  accounts_t;
 	typedef std::vector<int>								  ints_t;
 	typedef std::pair<accounts_t::iterator, ints_t::iterator> acc_int_t;
 
 	int	const				amounts[]	= { 42, 54, 957, 432, 1234, 0, 754, 16576 };
+	//sizeof(amounts): this gives the total size in bytes of the amounts array.
 	size_t const			amounts_size( sizeof(amounts) / sizeof(int) );
+	//amounts is a pointer to the first element of the array, and amounts + amounts_size is 
+	//a pointer to one past the last element of the array. This range is used to construct the vector.
+	//accounts: A vector of Account objects initialized with the amounts from the amounts array.
 	accounts_t				accounts( amounts, amounts + amounts_size );
 	accounts_t::iterator	acc_begin	= accounts.begin();
 	accounts_t::iterator	acc_end		= accounts.end();
@@ -38,6 +43,9 @@ int		main( void ) {
 	ints_t::iterator	wit_end		= withdrawals.end();
 
 	Account::displayAccountsInfos();
+
+	//Applies the given function object f to the result of dereferencing every iterator 
+	//in the range [first, last). If f returns a result, the result is ignored.
 	std::for_each( acc_begin, acc_end, std::mem_fun_ref( &Account::displayStatus ) );
 
 	for ( acc_int_t it( acc_begin, dep_begin );
