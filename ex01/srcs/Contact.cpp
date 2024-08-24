@@ -1,12 +1,5 @@
 #include "../includes/header.hpp"
 
-int Contact::contact_exist() {
-    if (initialized == true)
-        return(1);
-	else
-		return(0);
-}
-
 void Contact::set_contact () {
 	std::cout << "First Name: ";
 	while (first_name.empty()) {

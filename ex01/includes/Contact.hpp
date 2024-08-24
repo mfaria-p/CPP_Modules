@@ -10,7 +10,6 @@ class Contact {
         bool initialized;
     public:
         void set_contact ();
-        int contact_exist();
         void print_table(int index);
         void print_contact();
     };
