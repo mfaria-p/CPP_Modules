@@ -45,7 +45,7 @@ int		main( void ) {
 	Account::displayAccountsInfos();
 
 	//Applies the given function object f to the result of dereferencing every iterator 
-	//in the range [first, last). If f returns a result, the result is ignored.
+	//in the range. If f returns a result, the result is ignored.
 	std::for_each( acc_begin, acc_end, std::mem_fun_ref( &Account::displayStatus ) );
 
 	for ( acc_int_t it( acc_begin, dep_begin );
