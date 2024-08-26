@@ -7,7 +7,6 @@ class Contact {
         std::string nickname;
         std::string phone_number;
         std::string darkest_secret;
-        bool initialized;
     public:
         void set_contact ();
         void print_table(int index);

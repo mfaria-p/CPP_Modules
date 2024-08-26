@@ -1,47 +1,82 @@
 #include "../includes/header.hpp"
 
+
+bool    ft_isalpha(std::string str)
+{
+    std::string:: iterator itr;
+    for (itr = str.begin(); itr < str.end(); itr++) {
+        if (!isalpha(*itr))
+            return (false);
+    }
+    return (true);
+}
+
+bool    ft_isdigit(std::string str)
+{
+    std::string:: iterator itr;
+    for (itr = str.begin(); itr < str.end(); itr++) {
+        if (!isdigit(*itr))
+            return (false);
+    }
+    return (true);
+}
+
 void Contact::set_contact () {
 	std::cout << "First Name: ";
-	while (first_name.empty()) {
-				std::getline(std::cin, first_name);
-				if (first_name.empty()) {
-					std::cout << "You can't have an empty first name. Try again..." << std::endl;
-					std::cout << "First Name: ";
-				}
-			}
-    std::cout << "Last Name: ";
-	while (last_name.empty()) {
-		std::getline(std::cin, last_name);
-		if (last_name.empty()) {
-			std::cout << "You can't have an empty last name. Try again...\n";
-			std::cout << "Last Name: ";
-		}
+	while (std::getline(std::cin, first_name))
+    {
+        if (!ft_isalpha(first_name) || first_name.empty())
+        {
+            std::cout << "Invalid input, try again!" << std::endl;
+            std::cout << "First Name: ";
+            continue;
+        }
+		break ;
 	}
-    std::cout << "Nickname: ";
-	while (nickname.empty()) {
-		std::getline(std::cin, nickname);
-		if (nickname.empty()) {
-			std::cout << "You can't have an empty nickname. Try again...\n";
-			std::cout << "Nickname: ";
-		}
+	std::cout << "Last Name: ";
+    while (std::getline(std::cin, last_name))
+    {
+        if (!ft_isalpha(last_name) || last_name.empty())
+        {
+            std::cout << "Invalid input, try again!" << std::endl;
+            std::cout << "Last Name: ";
+            continue;
+        }
+		break ;
 	}
-    std::cout << "Phone Number: ";
-	while (phone_number.empty()) {
-		std::getline(std::cin, phone_number);
-		if (phone_number.empty()) {
-			std::cout << "You can't have an empty phone number. Try again...\n";
-			std::cout << "Phone Number: ";
-	    }
+	std::cout << "Nickname: ";
+    while (std::getline(std::cin, nickname))
+    {
+        if (!ft_isalpha(nickname) || nickname.empty())
+        {
+            std::cout << "Invalid input, try again!" << std::endl;
+            std::cout << "Nickname: ";
+            continue;
+        }
+		break ;
+	}
+	std::cout << "Phone Number: ";
+    while (std::getline(std::cin, phone_number))
+    {
+        if (!ft_isdigit(phone_number) || phone_number.empty())
+        {
+            std::cout << "Invalid input, try again!" << std::endl;
+            std::cout << "Phone Number: ";
+            continue;
+        }
+		break ;
 	}
     std::cout << "Darkest Secret: ";
-			while (darkest_secret.empty()) {
-				std::getline(std::cin, darkest_secret);
-				if (darkest_secret.empty()) {
-					std::cout << "You can't have an empty darkest secret. Try again...\n";
-					std::cout << "Please input your darkest secret: ";
-				}
-			}
-    initialized = true;
+    while (std::getline(std::cin, darkest_secret))
+    {
+        if (darkest_secret.empty())
+        {
+            std::cout << "Invalid input, try again!" << std::endl;
+            std::cout << "Darkest Secret: ";
+            continue;
+        }
+		break ;
+	}
 };
 
 void truncate_print(const std::string& str) {
