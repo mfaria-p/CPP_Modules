@@ -10,8 +10,12 @@ int main(void)
     std::cout << "The most incredible PhoneBook you will ever see :)" << std::endl;
     while (1)
     {
-        std::cout << "enter a command: ";
-        std::getline (std::cin,cmd);
+        std::cout << "enter a command (ADD, SEARCH or EXIT): ";
+        std::getline(std::cin, cmd);
+        if (std::cin.eof()) {
+            std::cout << std::endl << "User interrupted the program. Exiting..." << std::endl;
+            exit(EXIT_SUCCESS);
+        }
         if (cmd == "ADD")
             Phone.add_to_book(index);
         else if (cmd == "SEARCH")

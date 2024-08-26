@@ -22,61 +22,69 @@ bool    ft_isdigit(std::string str)
 }
 
 void Contact::set_contact () {
-	std::cout << "First Name: ";
-	while (std::getline(std::cin, first_name))
-    {
-        if (!ft_isalpha(first_name) || first_name.empty())
-        {
-            std::cout << "Invalid input, try again!" << std::endl;
+    std::cout << "First Name: ";
+	while (true) {
+        std::getline(std::cin, first_name);
+        if (std::cin.eof()) {
+            std::cout << std::endl << "User interrupted the program. Exiting..." << std::endl;
+            exit(EXIT_SUCCESS);
+        }
+        if (!ft_isalpha(first_name) || first_name.empty()) {
+            std::cout << "Invalid first name. Try again..." << std::endl;
             std::cout << "First Name: ";
-            continue;
+        } else break;
+    }
+    std::cout << "Last Name: ";
+    while (true) {
+        std::getline(std::cin, last_name);
+        if (std::cin.eof()) {
+            std::cout << std::endl << "User interrupted the program. Exiting..." << std::endl;
+            exit(EXIT_SUCCESS);
         }
-		break ;
-	}
-	std::cout << "Last Name: ";
-    while (std::getline(std::cin, last_name))
-    {
-        if (!ft_isalpha(last_name) || last_name.empty())
-        {
-            std::cout << "Invalid input, try again!" << std::endl;
+        if (!ft_isalpha(last_name) || last_name.empty()) {
+            std::cout << "Invalid last name. Try again..." << std::endl;
             std::cout << "Last Name: ";
-            continue;
+        } else break;
+    }
+
+    std::cout << "Nickname: ";
+    while (true) {
+        std::getline(std::cin, nickname);
+        if (std::cin.eof()) {
+            std::cout << std::endl << "User interrupted the program. Exiting..." << std::endl;
+            exit(EXIT_SUCCESS);
         }
-		break ;
-	}
-	std::cout << "Nickname: ";
-    while (std::getline(std::cin, nickname))
-    {
-        if (!ft_isalpha(nickname) || nickname.empty())
-        {
-            std::cout << "Invalid input, try again!" << std::endl;
+        if (nickname.empty()) {
+            std::cout << "Invalid nickname. Try again..." << std::endl;
             std::cout << "Nickname: ";
-            continue;
+        } else break;
+    }
+
+    std::cout << "Phone Number: ";
+    while (true) {
+        std::getline(std::cin, phone_number);
+        if (std::cin.eof()) {
+            std::cout << std::endl << "User interrupted the program. Exiting..." << std::endl;
+            exit(EXIT_SUCCESS);
         }
-		break ;
-	}
-	std::cout << "Phone Number: ";
-    while (std::getline(std::cin, phone_number))
-    {
-        if (!ft_isdigit(phone_number) || phone_number.empty())
-        {
-            std::cout << "Invalid input, try again!" << std::endl;
+        if (!ft_isdigit(phone_number) || phone_number.empty()) {
+            std::cout << "Invalid phone number. Try again..." << std::endl;
             std::cout << "Phone Number: ";
-            continue;
-        }
-		break ;
-	}
+        } else break;
+    }
+
     std::cout << "Darkest Secret: ";
-    while (std::getline(std::cin, darkest_secret))
-    {
-        if (darkest_secret.empty())
-        {
-            std::cout << "Invalid input, try again!" << std::endl;
-            std::cout << "Darkest Secret: ";
-            continue;
+    while (true) {
+        std::getline(std::cin, darkest_secret);
+        if (std::cin.eof()) {
+            std::cout << std::endl << "User interrupted the program. Exiting..." << std::endl;
+            exit(EXIT_SUCCESS);
         }
-		break ;
-	}
+        if (darkest_secret.empty()) {
+            std::cout << "You can't have an empty darkest secret. Try again..." << std::endl;
+            std::cout << "Darkest Secret: ";
+        } else break;
+    }
 };
 
 void truncate_print(const std::string& str) {
