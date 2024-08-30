@@ -13,8 +13,10 @@ int main(void)
         std::cout << "enter a command (ADD, SEARCH or EXIT): ";
         std::getline(std::cin, cmd);
         if (std::cin.eof()) {
-            std::cout << std::endl << "User interrupted the program. Exiting..." << std::endl;
-            exit(EXIT_SUCCESS);
+            std::cin.clear();
+            clearerr(stdin);
+            std::cout << "\nComand not Found... Try again" << std::endl;
+            continue ;
         }
         if (cmd == "ADD")
             Phone.add_to_book(index);
@@ -24,11 +26,11 @@ int main(void)
         }
         else if (cmd == "EXIT")
         {
-            std::cout << "Exiting from the awesome PhoneBook :)\n";
+            std::cout << "Exiting from the awesome PhoneBook :)" << std::endl;
             exit(EXIT_SUCCESS);
         }
         else
-            std::cout << "Comand not Found... Try again\n";
+            std::cout << "Comand not Found... Try again" << std::endl;
     }
 
 }

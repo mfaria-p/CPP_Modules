@@ -1,6 +1,7 @@
 #include "Account.hpp"
 #include <iostream>
 #include <ctime>
+#include <iomanip>
 
 //static members have to be declared outside the class, 
 //because they are the same to every object of that class
@@ -87,11 +88,12 @@ void Account::displayStatus(void) const {
 void Account::_displayTimestamp(void) {
     std::time_t now = std::time(NULL);
     std::tm *ltm = std::localtime(&now);
-    std::cout << "[" << 1900 + ltm->tm_year 
-              << ltm->tm_mon + 1 
-              << ltm->tm_mday << "_" 
-              << ltm->tm_hour 
-              << ltm->tm_min 
-              << ltm->tm_sec 
+    std::cout << "["
+              << 1900 + ltm->tm_year
+              << std::setw(2) << std::setfill('0') << ltm->tm_mon + 1
+              << std::setw(2) << std::setfill('0') << ltm->tm_mday << "_"
+              << std::setw(2) << std::setfill('0') << ltm->tm_hour
+              << std::setw(2) << std::setfill('0') << ltm->tm_min
+              << std::setw(2) << std::setfill('0') << ltm->tm_sec
               << "] ";
 }

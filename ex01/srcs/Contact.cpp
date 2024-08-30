@@ -26,8 +26,9 @@ void Contact::set_contact () {
 	while (true) {
         std::getline(std::cin, first_name);
         if (std::cin.eof()) {
-            std::cout << std::endl << "User interrupted the program. Exiting..." << std::endl;
-            exit(EXIT_SUCCESS);
+            std::cin.clear();
+            clearerr(stdin);
+            std::cout << std::endl;
         }
         if (!ft_isalpha(first_name) || first_name.empty()) {
             std::cout << "Invalid first name. Try again..." << std::endl;
@@ -38,8 +39,9 @@ void Contact::set_contact () {
     while (true) {
         std::getline(std::cin, last_name);
         if (std::cin.eof()) {
-            std::cout << std::endl << "User interrupted the program. Exiting..." << std::endl;
-            exit(EXIT_SUCCESS);
+            std::cin.clear();
+            clearerr(stdin);
+            std::cout << std::endl;
         }
         if (!ft_isalpha(last_name) || last_name.empty()) {
             std::cout << "Invalid last name. Try again..." << std::endl;
@@ -51,8 +53,9 @@ void Contact::set_contact () {
     while (true) {
         std::getline(std::cin, nickname);
         if (std::cin.eof()) {
-            std::cout << std::endl << "User interrupted the program. Exiting..." << std::endl;
-            exit(EXIT_SUCCESS);
+            std::cin.clear();
+            clearerr(stdin);
+            std::cout << std::endl;
         }
         if (nickname.empty()) {
             std::cout << "Invalid nickname. Try again..." << std::endl;
@@ -64,8 +67,9 @@ void Contact::set_contact () {
     while (true) {
         std::getline(std::cin, phone_number);
         if (std::cin.eof()) {
-            std::cout << std::endl << "User interrupted the program. Exiting..." << std::endl;
-            exit(EXIT_SUCCESS);
+            std::cin.clear();
+            clearerr(stdin);
+            std::cout << std::endl;
         }
         if (!ft_isdigit(phone_number) || phone_number.empty()) {
             std::cout << "Invalid phone number. Try again..." << std::endl;
@@ -77,8 +81,9 @@ void Contact::set_contact () {
     while (true) {
         std::getline(std::cin, darkest_secret);
         if (std::cin.eof()) {
-            std::cout << std::endl << "User interrupted the program. Exiting..." << std::endl;
-            exit(EXIT_SUCCESS);
+            std::cin.clear();
+            clearerr(stdin);
+            std::cout << std::endl;
         }
         if (darkest_secret.empty()) {
             std::cout << "You can't have an empty darkest secret. Try again..." << std::endl;

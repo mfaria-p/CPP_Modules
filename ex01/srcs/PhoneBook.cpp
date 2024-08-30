@@ -27,8 +27,10 @@ void PhoneBook::print_data(void) {
             std::cout << "Type Contact Index for more information: ";
             std::getline(std::cin, line);
             if (std::cin.eof()) {
-                std::cout << std::endl << "User interrupted the program. Exiting..." << std::endl;
-                exit(EXIT_SUCCESS);
+                std::cin.clear();
+                clearerr(stdin);
+                std::cout << "\nContact index not found." << std::endl;
+                continue ;
             }
             index = atoi(line.c_str());
             index -= 1;

@@ -4,6 +4,7 @@
 #include <iostream>
 #include <iomanip>
 #include <stdlib.h>
+#include <cstdio>
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
 
